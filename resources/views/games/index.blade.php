@@ -25,7 +25,14 @@
                             <ul class="d-flex list-unstyled gap-2">
                                 <li><a href="#">details</a></li>
                                 <li><a href="#">edit</a></li>
-                                <li>delete</li>
+                                <li>
+                                    <form action="{{ route('games.destroy', $game) }}" method="POST">
+                                        @csrf
+                                        
+                                        @method('DELETE')
+                                        <input type="submit" value="Cancella" class="btn btn-danger btn-sm">
+                                    </form>
+                                </li>
                             </ul>
                         </td>
                     </tr>
