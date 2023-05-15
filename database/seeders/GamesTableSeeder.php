@@ -16,10 +16,11 @@ class GamesTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
+        Game::truncate();
         for ($i=0;$i<10;$i++){
             $newGame= new Game();
-            $newGame->original_title= $faker->lexify('??????????');
-            $newGame->title= $faker->lexify('??????????');
+            $newGame->original_title= $faker->sentence(3);
+            $newGame->title= $faker->sentence(3);
             $newGame->description= $faker->paragraph();
             $newGame->developer= $faker->company();
             $newGame->publisher= $faker->company();
@@ -32,13 +33,13 @@ class GamesTableSeeder extends Seeder
             $newGame->multiplayer= $faker->boolean();
             $newGame->local_multiplayer= $faker->boolean();
             $newGame->cross_play= $faker->boolean();
-            $newGame->audio_language = $faker->countryCode();
-            $newGame->interface_language = $faker->countryCode();
+            $newGame->audio_language = $faker->languageCode();
+            $newGame->interface_language = $newGame->audio_language;
             $newGame->dx_version = $faker->numberBetween(1, 254);
             $newGame->vote = $faker->numberBetween(0, 5);
             $newGame->pegi= $faker->numberBetween(3,18);
             $newGame->ram= $faker->numberBetween(1, 32);
-            $newGame->discount_value = $faker->numberBetween(0,100);
+            $newGame->discount_value = $faker->numberBetween(1,99);
             $newGame->realese_version= $faker->semver();
             $newGame->thumb= $faker->imageUrl(640, 480, 'animals', true);
             $newGame->save();
