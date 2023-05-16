@@ -23,14 +23,14 @@
                         <td>{{$game->pegi}}</td>
                         <td>
                             <ul class="d-flex list-unstyled gap-2">
-                                <li><a href="#">details</a></li>
-                                <li><a href="#">edit</a></li>
+                                <li><a href="{{ route('games.show', $game) }}" class="btn btn-primary">details</a></li>
+                                <li><a href="#" class="btn btn-success">edit</a></li>
                                 <li>
                                     <form action="{{ route('games.destroy', $game) }}" method="POST">
                                         @csrf
                                         
                                         @method('DELETE')
-                                        <input type="submit" value="Cancella" class="btn btn-danger btn-sm">
+                                        <input type="submit" value="Cancella" class="btn btn-danger">
                                     </form>
                                 </li>
                             </ul>
