@@ -38,33 +38,8 @@ class GamesController extends Controller
      */
     public function store(GamesRequest $request)
     {
-        $request->validated();
-
-        $data=$request->all();
-        $newGame->original_title= $data['original_title'];
-        $newGame->title= $data['title'];
-        $newGame->description= $data['description'];
-        $newGame->developer= $data['developer'];
-        $newGame->publisher= $data['publisher'];
-        $newGame->released= $data['released'];
-        $newGame->release = $data['release'];
-        $newGame->price = $data['price'];
-        $newGame->required_space = $data['required_space'];
-        $newGame->genres=$data['genres'];
-        $newGame->singleplayer= $data['singleplayer'];
-        $newGame->multiplayer= $data['multiplayer'];
-        $newGame->local_multiplayer= $data['local_multiplayer'];
-        $newGame->cross_play= $data['cross_play'];
-        $newGame->audio_language = $data['audio_language'];
-        $newGame->interface_language = $data['interface_language'];
-        $newGame->dx_version = $data['dx_version'];
-        $newGame->vote = $data['vote'];
-        $newGame->pegi= $data['pegi'];
-        $newGame->ram= $data['ram'];
-        $newGame->discount_value = $data['discount_value'];
-        $newGame->realese_version= $data['realese_version'];
-        $newGame->thumb= $data['thumb'];
-        $newGame->save();
+        $data=$request->validated();
+        Game::create($data);
         return to_route('games.index');
     }
 
