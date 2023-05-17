@@ -43,10 +43,14 @@
                         value="{{ old('publisher') }}">
                 </div>
                 <div class="mb-3">
-                    <input class="form-check-input" type="checkbox" value="{{ old('released',true) }}" id="released" name="released" checked>
                     <label class="form-check-label" for="released">
                         Released
                     </label>
+                    <select name="released" id="released">
+                        <option value="" {{ old('released') == null ? 'selected' : ''}}>Schegli un opzione</option>
+                        <option value="1" {{ old('released') == '1' ? 'selected' : ''}}>Si</option>
+                        <option value="0" {{ old('released') == '0' ? 'selected' : ''}}>No</option>
+                    </select>
                 </div>
                 <div class="mb-3">
                     <label for="release" class="form-label">Release</label>
@@ -62,28 +66,44 @@
                     <input type="text" class="form-control" id="genres" name="genres" value="{{ old('genres') }}">
                 </div>
                 <div class="mb-3">
-                    <input class="form-check-input" type="checkbox" value="{{ old('singleplayer',true) }}" id="singleplayer" name="singleplayer" checked>
                     <label class="form-check-label" for="singleplayer">
                         singleplayer
                     </label>
+                    <select name="singleplayer" id="singleplayer">
+                        <option value="" {{ old('singleplayer') == null ? 'selected' : ''}}>Schegli un opzione</option>
+                        <option value="1" {{ old('singleplayer') == '1' ? 'selected' : ''}}>Si</option>
+                        <option value="0" {{ old('singleplayer') == '0' ? 'selected' : ''}}>No</option>
+                    </select>
                 </div>
                 <div class="mb-3">
-                    <input class="form-check-input" type="checkbox" value="{{ old('multiplayer',true) }}" id="multiplayer" name="multiplayer" checked>
                     <label class="form-check-label" for="multiplayer">
                         multiplayer
                     </label>
+                    <select name="multiplayer" id="multiplayer">
+                        <option value="" {{ old('multiplayer') == null ? 'selected' : ''}}>Schegli un opzione</option>
+                        <option value="1" {{ old('multiplayer') == '1' ? 'selected' : ''}}>Si</option>
+                        <option value="0" {{ old('multiplayer') == '0' ? 'selected' : ''}}>No</option>
+                    </select>
                 </div>
                 <div class="mb-3">
-                    <input class="form-check-input" type="checkbox" value="{{ old('local_multiplayer',true) }}" id="local_multiplayer" name="local_multiplayer" checked>
                     <label class="form-check-label" for="local_multiplayer">
                         local_multiplayer
                     </label>
+                    <select name="local_multiplayer" id="local_multiplayer">
+                        <option value="" {{ old('local_multiplayer') == null ? 'selected' : ''}}>Schegli un opzione</option>
+                        <option value="1" {{ old('local_multiplayer') == '1' ? 'selected' : ''}}>Si</option>
+                        <option value="0" {{ old('local_multiplayer') == '0' ? 'selected' : ''}}>No</option>
+                    </select>
                 </div>
                 <div class="mb-3">
-                    <input class="form-check-input" type="checkbox" value="{{ old('cross_play',true) }}" id="cross_play" name="cross_play" checked>
                     <label class="form-check-label" for="cross_play">
                         cross_play
                     </label>
+                    <select name="cross_play" id="cross_play">
+                        <option value="" {{ old('cross_play') == null ? 'selected' : ''}}>Schegli un opzione</option>
+                        <option value="1" {{ old('cross_play') == '1' ? 'selected' : ''}}>Si</option>
+                        <option value="0" {{ old('cross_play') == '0' ? 'selected' : ''}}>No</option>
+                    </select>
                 </div>
                 <div class="mb-3">
                     <label for="audio_language" class="form-label">audio language</label>
