@@ -31,7 +31,7 @@ class GamesRequest extends FormRequest
             'publisher'=>'required|max:50',
             'released'=>'required|boolean',
             'release'=>'required|date',
-            'price'=>'required|numeric|decimal:0,2|max_digits:6',
+            'price'=>'required|numeric|decimal:0,2|max:999999',
             'required_space'=>'required|numeric|max_digits:255',
             'genres'=>'required',
             'singleplayer'=>'required|boolean',

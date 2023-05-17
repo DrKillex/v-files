@@ -26,10 +26,10 @@ return new class extends Migration
             $table->float('price', 6,2)->unsigned();
             $table->tinyInteger('required_space')->unsigned();
             $table->text('genres');
-            $table->boolean('singleplayer');
-            $table->boolean('multiplayer');
-            $table->boolean('local_multiplayer');
-            $table->boolean('cross_play');
+            $table->boolean('singleplayer')->default(false);
+            $table->boolean('multiplayer')->default(false);
+            $table->boolean('local_multiplayer')->default(false);
+            $table->boolean('cross_play')->default(false);
             $table->string('audio_language', 5);
             $table->string('interface_language', 5);
             $table->tinyInteger('dx_version')->unsigned();
@@ -43,7 +43,7 @@ return new class extends Migration
         });
     }
 
-    
+
 
 
     /**

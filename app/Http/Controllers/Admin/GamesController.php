@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Game;
 use Illuminate\Http\Request;
+use App\Http\Requests\GamesRequest;
+use App\Http\Controllers\Controller;
 
 class GamesController extends Controller
 {
@@ -26,7 +27,7 @@ class GamesController extends Controller
      */
     public function create()
     {
-        //
+        return view('games.create');
     }
 
     /**
@@ -35,9 +36,11 @@ class GamesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GamesRequest $request)
     {
-        //
+        $data=$request->validated();
+        Game::create($data);
+        return to_route('games.index');
     }
 
     /**
