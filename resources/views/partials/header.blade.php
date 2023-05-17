@@ -6,6 +6,7 @@
 
             <li><a href="{{ route('games.index') }}">home</a></li>  
             <li><a href="{{ route('games.create') }}">create</a></li> 
+             
 
         </ul>
 
