@@ -25,3 +25,21 @@
     * ram (not null, tinyint)
     * discount_value (null, tinyint)
     * realese_version (not null, varchar 100)
+
+- Abbiamo sviluppato la parte di CRUD
+- Abbiamo aggiornato l' applicativo in modo che usi la parte di autenticazione
+
+
+## Roadmap
+
+- Aggiungere stile e struttura alla dashboard
+- Aggiungere stile alle pagine di CRUD
+- Aggiungere la possibilita di passare da tema light a dark e viceversa
+- Ottimizzare DB
+- Creare un footer
+- Creare pagina contatti di chi ha sviluppato l'applicativo
+- Aggiungere altri punti alla Roadmap
+
+### Da ricordare
+
+- Han ha sparato per primo
