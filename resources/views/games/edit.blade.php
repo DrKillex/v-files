@@ -18,7 +18,7 @@
                 <div class="mb-3">
                     <label for="original_title" class="form-label">Original Title</label>
                     <input type="text" class="form-control" id="original_title" name="original_title"
-                        value="{{ old('title', $game->original_title )}}">
+                        value="{{ old('original_title', $game->original_title )}}">
                 </div>
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
@@ -48,9 +48,9 @@
                         Released
                     </label>
                     <select name="released" id="released">
-                        <option value="" {{ old('released', $game->released == null ? 'selected' : '')}}>Schegli un opzione</option>
-                        <option value="1" {{ old('released', $game->released == '1' ? 'selected' : '')}}>Si</option>
-                        <option value="0" {{ old('released', $game->released == '0' ? 'selected' : '')}}>No</option>
+                        <option value="" {{ old('released', $game->released) == null ? 'selected' : ''}}>Schegli un opzione</option>
+                        <option value="1" {{ old('released', $game->released) == '1' ? 'selected' : ''}}>Si</option>
+                        <option value="0" {{ old('released', $game->released) == '0' ? 'selected' : ''}}>No</option>
                     </select>
                 </div>
                 <div class="mb-3">
@@ -71,9 +71,9 @@
                         singleplayer
                     </label>
                     <select name="singleplayer" id="singleplayer">
-                        <option value="" {{ old('singleplayer', $game->singleplayer == null ? 'selected' : '')}}>Schegli un opzione</option>
-                        <option value="1" {{ old('singleplayer', $game->singleplayer == '1' ? 'selected' : '')}}>Si</option>
-                        <option value="0" {{ old('singleplayer', $game->singleplayer == '0' ? 'selected' : '')}}>No</option>
+                        <option value="" {{ old('singleplayer', $game->singleplayer) == null ? 'selected' : ''}}>Schegli un opzione</option>
+                        <option value="1" {{ old('singleplayer', $game->singleplayer) == '1' ? 'selected' : ''}}>Si</option>
+                        <option value="0" {{ old('singleplayer', $game->singleplayer) == '0' ? 'selected' : ''}}>No</option>
                     </select>
                 </div>
                 <div class="mb-3">
@@ -81,9 +81,9 @@
                         multiplayer
                     </label>
                     <select name="multiplayer" id="multiplayer">
-                        <option value="" {{ old('multiplayer', $game->multiplayer == null ? 'selected' : '')}}>Schegli un opzione</option>
-                        <option value="1" {{ old('multiplayer', $game->multiplayer == '1' ? 'selected' : '')}}>Si</option>
-                        <option value="0" {{ old('multiplayer', $game->multiplayer == '0' ? 'selected' : '')}}>No</option>
+                        <option value="" {{ old('multiplayer', $game->multiplayer) == null ? 'selected' : ''}}>Schegli un opzione</option>
+                        <option value="1" {{ old('multiplayer', $game->multiplayer) == '1' ? 'selected' : ''}}>Si</option>
+                        <option value="0" {{ old('multiplayer', $game->multiplayer) == '0' ? 'selected' : ''}}>No</option>
                     </select>
                 </div>
                 <div class="mb-3">
@@ -91,9 +91,9 @@
                         local_multiplayer
                     </label>
                     <select name="local_multiplayer" id="local_multiplayer">
-                        <option value="" {{ old('local_multiplayer', $game->local_multiplayer == null ? 'selected' : '')}}>Schegli un opzione</option>
-                        <option value="1" {{ old('local_multiplayer', $game->local_multiplayer == '1' ? 'selected' : '')}}>Si</option>
-                        <option value="0" {{ old('local_multiplayer', $game->local_multiplayer == '0' ? 'selected' : '')}}>No</option>
+                        <option value="" {{ old('local_multiplayer', $game->local_multiplayer) == null ? 'selected' : ''}}>Schegli un opzione</option>
+                        <option value="1" {{ old('local_multiplayer', $game->local_multiplayer) == '1' ? 'selected' : ''}}>Si</option>
+                        <option value="0" {{ old('local_multiplayer', $game->local_multiplayer) == '0' ? 'selected' : ''}}>No</option>
                     </select>
                 </div>
                 <div class="mb-3">
@@ -101,9 +101,9 @@
                         cross_play
                     </label>
                     <select name="cross_play" id="cross_play">
-                        <option value="" {{ old('cross_play', $game->cross_play == null ? 'selected' : '')}}>Schegli un opzione</option>
-                        <option value="1" {{ old('cross_play', $game->cross_play == '1' ? 'selected' : '')}}>Si</option>
-                        <option value="0" {{ old('cross_play', $game->cross_play == '0' ? 'selected' : '')}}>No</option>
+                        <option value="" {{ old('cross_play', $game->cross_play) == null ? 'selected' : ''}}>Schegli un opzione</option>
+                        <option value="1" {{ old('cross_play', $game->cross_play) == '1' ? 'selected' : ''}}>Si</option>
+                        <option value="0" {{ old('cross_play', $game->cross_play) == '0' ? 'selected' : ''}}>No</option>
                     </select>
                 </div>
                 <div class="mb-3">
