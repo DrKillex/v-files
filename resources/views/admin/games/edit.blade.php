@@ -12,7 +12,7 @@
                     </ul>
                 </div>
             @endif
-            <form action="{{ route('games.update',  $game) }}" method="POST">
+            <form action="{{ route('admin.games.update',  $game) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
