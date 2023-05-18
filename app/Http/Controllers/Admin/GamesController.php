@@ -72,12 +72,12 @@ class GamesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(GamesRequest $request, Game $games)
+    public function update(GamesRequest $request, Game $game)
     {
         $data = $request->all();
-        $games->update($data);
+        $game->update($data);
 
-        return redirect()->route('games.show', $games->original_title);
+        return redirect()->route('games.show', $game);
     }
 
     /**

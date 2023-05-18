@@ -24,7 +24,7 @@
                         <td>
                             <ul class="d-flex list-unstyled gap-2">
                                 <li><a href="{{ route('games.show', $game) }}" class="btn btn-primary">details</a></li>
-                                <li><a href="#" class="btn btn-success">edit</a></li>
+                                <li><a href="{{route('games.edit', $game)}}" class="btn btn-success">edit</a></li>
                                 <li>
                                     <form action="{{ route('games.destroy', $game) }}" method="POST">
                                         @csrf
