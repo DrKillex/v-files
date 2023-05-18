@@ -12,7 +12,7 @@
                     </ul>
                 </div>
             @endif
-            <form action="{{ route('games.store') }}" method="POST">
+            <form action="{{ route('admin.games.store') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="original_title" class="form-label">Original Title</label>
