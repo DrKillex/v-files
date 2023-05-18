@@ -72,7 +72,7 @@ class GamesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Game $game)
+    public function update(GamesRequest $request, Game $games)
     {
         $data = $request->all();
         $games->update($data);
