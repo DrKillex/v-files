@@ -2,7 +2,7 @@
 
 - Abbiamo scelto il team leader che è Luca Collaro.
 - Abbiamo scelto come strutturare il db (22 campi):
-
+    ## NOME DB: games
     * original_title (not null, varchar 150)
     * title (null, varchar 150,)
     * description (not null, text)
