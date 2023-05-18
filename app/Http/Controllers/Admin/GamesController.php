@@ -16,7 +16,7 @@ class GamesController extends Controller
      */
     public function index()
     {
-        $games=Game::all();
+        $games = Game::all();
         return view('games.index', compact('games'));
     }
 
@@ -38,7 +38,7 @@ class GamesController extends Controller
      */
     public function store(GamesRequest $request)
     {
-        $data=$request->validated();
+        $data = $request->validated();
         Game::create($data);
         return to_route('games.index');
     }
@@ -60,9 +60,9 @@ class GamesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Game $game)
     {
-        //
+        return view('games.edit', compact('game'));
     }
 
     /**
@@ -72,9 +72,12 @@ class GamesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(GamesRequest $request, Game $game)
     {
-        //
+        $data = $request->all();
+        $game->update($data);
+
+        return redirect()->route('games.show', $game);
     }
 
     /**
