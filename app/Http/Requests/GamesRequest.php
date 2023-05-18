@@ -25,7 +25,7 @@ class GamesRequest extends FormRequest
     {
         return [
             'original_title'=>'required|max:150',
-            'original_title'=>'max:150',
+            'title'=>'max:150',
             'description'=>'required',
             'developer'=>'required|max:50',
             'publisher'=>'required|max:50',

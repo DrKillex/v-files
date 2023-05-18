@@ -15,7 +15,7 @@
                     @endif
 
                     {{ __('You are logged in!') }}
-                    <a href="{{ route('games.index') }}">lista</a>
+                    <a href="{{ route('admin.games.index') }}">lista</a>
                 </div>
             </div>
         </div>
