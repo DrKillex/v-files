@@ -6,6 +6,7 @@ use App\Models\Game;
 use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Str;
 
 class GamesTableSeeder extends Seeder
 {
@@ -21,20 +22,16 @@ class GamesTableSeeder extends Seeder
             $newGame= new Game();
             $newGame->original_title= $faker->sentence(3);
             $newGame->title= $faker->sentence(3);
+            $newGame->slug= Str::slug($newGame->original_title);
             $newGame->description= $faker->paragraph();
-            $newGame->developer= $faker->company();
-            $newGame->publisher= $faker->company();
             $newGame->released= $faker->boolean();
             $newGame->release = $faker->date();
             $newGame->price = $faker->randomFloat(2, 0, 9999);
             $newGame->required_space = $faker->numberBetween(1, 254);
-            $newGame->genres=$faker->randomElement(['Survival','Sport','Sparatutto']);
             $newGame->singleplayer= $faker->boolean();
             $newGame->multiplayer= $faker->boolean();
             $newGame->local_multiplayer= $faker->boolean();
             $newGame->cross_play= $faker->boolean();
-            $newGame->audio_language = $faker->languageCode();
-            $newGame->interface_language = $newGame->audio_language;
             $newGame->dx_version = $faker->numberBetween(1, 254);
             $newGame->vote = $faker->numberBetween(0, 5);
             $newGame->pegi= $faker->numberBetween(3,18);
