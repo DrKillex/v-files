@@ -85,14 +85,16 @@ class GamesController extends Controller
     {
         $data = $request->validated();
 
+
         if (isset($data['thumb'])) {
 
             if ($game->thumb) {
                 Storage::delete($game->thumb);
             }
 
-            $data['thumb'] = Storage::put('uploads', $data['thumb']);
+            $game->thumb = Storage::put('uploads', $data['thumb']);
         }
+
 
         $game->update($data);
         return redirect()->route('admin.games.show', $game);
@@ -110,3 +112,17 @@ class GamesController extends Controller
         return to_route('admin.games.index');
     }
 }
+
+// if (isset($data['delete_image'])) {
+//     if ($record->image) {
+//         Storage::delete($record->image);
+//         $record->image = null;
+//     }
+// } else {
+//     if (isset($data['image'])) {
+//         if ($record->image) {
+//             Storage::delete($record->image);
+//         }
+//         $record->image = Storage::put('uploads', $data['image']);
+//     }
+// }

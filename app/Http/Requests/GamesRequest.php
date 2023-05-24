@@ -46,7 +46,7 @@ class GamesRequest extends FormRequest
             'ram' => 'required|numeric',
             'discount_value' => 'required|numeric|min_digits:1|max_digits:99',
             'realese_version' => 'required|max:100',
-            'thumb' => 'required|image|max:2048',
+            'thumb' => 'image|max:2048',
         ];
     }
 }

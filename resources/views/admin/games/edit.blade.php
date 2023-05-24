@@ -156,7 +156,7 @@
                         <img id="file-image-preview" @if($game->thumb) src="{{asset('storage/' . $game->thumb)}} @endif" class="img-fluid">
                     </div>
                     <label for="thumb" class="form-label">Image</label>
-                    <input class="form-control" type="file" id="thumb" name="thumb">
+                    <input class="form-control" type="file" id="thumb" name="thumb" value="{{old('thumb', $game->thumb)}}">
                 </div>
                 
                 <button type="submit" class="btn btn-primary">Aggiungi</button>
