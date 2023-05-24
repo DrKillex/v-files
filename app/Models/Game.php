@@ -11,7 +11,11 @@ class Game extends Model
 
     protected $guarded=[];
 
+
     public function developers(){
         return $this->belongsToMany(Developer::class);
+    }
+    public function genres(){
+        return $this->belongsToMany(Genre::class)->withTimestamps();
     }
 }
