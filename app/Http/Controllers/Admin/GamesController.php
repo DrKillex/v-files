@@ -6,6 +6,9 @@ use App\Models\Game;
 use Illuminate\Http\Request;
 use App\Http\Requests\GamesRequest;
 use App\Http\Controllers\Controller;
+use App\Models\Language;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class GamesController extends Controller
 {
@@ -27,7 +30,8 @@ class GamesController extends Controller
      */
     public function create()
     {
-        return view('admin.games.create');
+        $languages = Language::all();
+        return view('admin.games.create', compact('languages'));
     }
 
     /**
@@ -39,7 +43,16 @@ class GamesController extends Controller
     public function store(GamesRequest $request)
     {
         $data = $request->validated();
-        Game::create($data);
+        // Game::create($data);
+
+        $game = new Game();
+        $game->fill($data);
+
+        $game->save();
+
+        if(isset($data['languages'])){
+            $game->languages()->sync($data['languages']);
+        }
         return to_route('admin.games.index');
     }
 
@@ -62,7 +75,8 @@ class GamesController extends Controller
      */
     public function edit(Game $game)
     {
-        return view('admin.games.edit', compact('game'));
+        $languages = Language::all();
+        return view('admin.games.edit', compact('game', 'languages'));
     }
 
     /**
@@ -75,6 +89,10 @@ class GamesController extends Controller
     public function update(GamesRequest $request, Game $game)
     {
         $data = $request->validated();
+
+        $languages = isset($data['languages']) ? $data['languages'] : [];
+        $game->languages()->sync($languages);
+
         $game->update($data);
 
         return redirect()->route('admin.games.show', $game);
@@ -88,6 +106,7 @@ class GamesController extends Controller
      */
     public function destroy(Game $game)
     {
+        // $old_id = $game->id;
         $game->delete();
         return to_route('admin.games.index');
     }

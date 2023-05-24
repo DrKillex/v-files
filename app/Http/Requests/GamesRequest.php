@@ -42,6 +42,7 @@ class GamesRequest extends FormRequest
             'discount_value'=>'required|numeric|min_digits:1|max_digits:99',
             'realese_version'=>'required|max:100',
             'thumb'=>'required',
+            'languages' => 'nullable|exists:languages,id'
         ];
     }
 }

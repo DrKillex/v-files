@@ -22,8 +22,9 @@
                             <div>multiplayer: {{$game->multiplayer == 0 ? '❌' : '✔'}}</div>
                             <div>local multiplayer: {{$game->local_multiplayer == 0 ? '❌' : '✔'}}</div>
                             <div>cross play: {{$game->cross_play == 0 ? '❌' : '✔'}}</div>
-                            <div>audio language: {{$game->audio_language}}</div>
-                            <div>interface language: {{$game->interface_language}}</div>
+                            {{-- <div>audio language: {{$game->audio_language}}</div>
+                            <div>interface language: {{$game->interface_language}}</div> --}}
+                            <h3>Language: {{ $game->language?->name ?: 'Nessun tipo' }}</h3>
                             <div>dx version: {{$game->dx_version}}</div>
                             <div>vote: {{$game->vote}}</div>
                             <div>pegi: {{$game->pegi}}</div>
