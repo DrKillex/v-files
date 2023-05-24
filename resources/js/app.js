@@ -10,12 +10,12 @@ import.meta.glob([
 ])
 
 const imageInputContainer = document.querySelector('#image-input-container');
-const imageInput = document.querySelector('#image');
-const setImageInput = document.getElementById('set_image');
+const imageInput = document.querySelector('#thumb');
+const setThumbInput = document.getElementById('set_thumb');
 imageInput.addEventListener('change', showPreview);
 
-setImageInput.addEventListener('change', function () {
-    if (setImageInput.checked) {
+setThumbInput.addEventListener('change', function () {
+    if (setThumbInput.checked) {
         imageInputContainer.classList.remove('d-none');
         imageInputContainer.classList.add('d-block');
     } else {

@@ -147,15 +147,15 @@
                 </div>
                 
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="set_image" name="set_image" @if ($game->thumb) checked @endif value="1">
-                    <label class="form-check-label" for="set_image">image set/unset</label>
+                    <input class="form-check-input" type="checkbox" role="switch" id="set_thumb" name="set_thumb" @if ($game->thumb) checked @endif value="1">
+                    <label class="form-check-label" for="set_thumb">image set/unset</label>
                 </div>
                 <div class="mb-3" id="image-input-container">
                     <div class="preview">
                         <img id="file-image-preview">
                     </div>
-                    <label for="image" class="form-label">Image</label>
-                    <input class="form-control" type="file" id="image" name="thumb">
+                    <label for="thumb" class="form-label">Image</label>
+                    <input class="form-control" type="file" id="thumb" name="thumb">
                 </div>
                 
                         

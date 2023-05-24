@@ -84,8 +84,17 @@ class GamesController extends Controller
     public function update(GamesRequest $request, Game $game)
     {
         $data = $request->validated();
-        $game->update($data);
 
+        if (isset($data['thumb'])) {
+
+            if ($game->thumb) {
+                Storage::delete($game->thumb);
+            }
+
+            $data['thumb'] = Storage::put('uploads', $data['thumb']);
+        }
+
+        $game->update($data);
         return redirect()->route('admin.games.show', $game);
     }
 
