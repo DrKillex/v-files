@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('publisher', 50);
             $table->boolean('released')->default(true);
             $table->date('release');
-            $table->float('price', 6,2)->unsigned();
+            $table->float('price', 6, 2)->unsigned();
             $table->tinyInteger('required_space')->unsigned();
             $table->text('genres');
             $table->boolean('singleplayer')->default(false);
@@ -38,7 +38,7 @@ return new class extends Migration
             $table->tinyInteger('ram')->unsigned();
             $table->tinyInteger('discount_value')->unsigned()->nullable();
             $table->string('realese_version', 100);
-            $table->text('thumb');
+            $table->string('thumb')->nullable();
             $table->timestamps();
         });
     }

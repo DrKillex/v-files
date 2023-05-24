@@ -6,6 +6,8 @@ use App\Models\Game;
 use Illuminate\Http\Request;
 use App\Http\Requests\GamesRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class GamesController extends Controller
 {
@@ -25,9 +27,9 @@ class GamesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Game $game)
     {
-        return view('admin.games.create');
+        return view('admin.games.create', compact('game'));
     }
 
     /**
@@ -39,8 +41,15 @@ class GamesController extends Controller
     public function store(GamesRequest $request)
     {
         $data = $request->validated();
-        Game::create($data);
-        return to_route('admin.games.index');
+        $newRecord = new Game();
+
+        if (isset($data['thumb'])) {
+            $data['thumb'] = Storage::put('uploads', $data['thumb']);
+        }
+        $newRecord->fill($data);
+        $newRecord->save();
+
+        return redirect()->route('admin.games.show', $newRecord);
     }
 
     /**
