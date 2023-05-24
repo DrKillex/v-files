@@ -24,6 +24,7 @@ class GamesRequest extends FormRequest
     public function rules()
     {
         return [
+
             'original_title'=>'required|max:150',
             'title'=>'max:150',
             'description'=>'required',
@@ -42,6 +43,9 @@ class GamesRequest extends FormRequest
             'discount_value'=>'required|numeric|min_digits:1|max_digits:99',
             'realese_version'=>'required|max:100',
             'thumb'=>'required',
+          
+          /*'thumb' => 'image|max:2048',*/
+
         ];
     }
 }

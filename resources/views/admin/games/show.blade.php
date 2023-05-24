@@ -30,6 +30,9 @@
                             <div>ram: {{$game->ram}}</div>
                             <div>discount value: {{$game->discount_value}}</div>
                             <div>realese version: {{$game->realese_version}}</div>
+                            <div>
+                                <img src="{{asset('storage/' . $game->thumb)}}" alt="" class="img-fluid img-thumbnail">
+                            </div>
                         </div>                     
                     </div>
                 </div>

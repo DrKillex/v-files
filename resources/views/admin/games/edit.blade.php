@@ -12,7 +12,7 @@
                     </ul>
                 </div>
             @endif
-            <form action="{{ route('admin.games.update',  $game) }}" method="POST">
+            <form action="{{ route('admin.games.update',  $game) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
@@ -146,9 +146,19 @@
                     <input type="text" class="form-control" id="realese_version" name="realese_version"
                         value="{{ old('realese_version', $game->realese_version ) }}">
                 </div>
-                <input type="hidden" name="thumb" id="thumb"
-                    value="https://via.placeholder.com/640x480.png/004466?text=animals+omnis">
-
+                
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="set_thumb" name="set_thumb" @if ($game->thumb) checked @endif value="1">
+                    <label class="form-check-label" for="set_thumb">image set/unset</label>
+                </div>
+                <div class="mb-3 @if(!$game->thumb) d-none @endif" id="image-input-container">
+                    <div class="preview">
+                        <img id="file-image-preview" @if($game->thumb) src="{{asset('storage/' . $game->thumb)}} @endif" class="img-fluid">
+                    </div>
+                    <label for="thumb" class="form-label">Image</label>
+                    <input class="form-control" type="file" id="thumb" name="thumb" value="{{old('thumb', $game->thumb)}}">
+                </div>
+                
                 <button type="submit" class="btn btn-primary">Aggiungi</button>
             </form>
         </div>
