@@ -9,11 +9,7 @@
       <a href="{{ route('admin.languages.create') }}" class="btn btn-primary">Crea lingua</a>
     </div>
 
-    @if (session('message'))
-    {{-- <div class="alert alert-success">
-      {{ session('message') }}
-    </div> --}}
-    
+    {{-- @if (session('message'))
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
       <div id="liveToast" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
@@ -25,7 +21,7 @@
         </div>
       </div>
     </div>
-    @endif
+    @endif --}}
 
     <table class="table">
         <thead>

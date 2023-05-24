@@ -11,7 +11,7 @@ class Game extends Model
 
     protected $guarded=['slug'];
 
-    public function technologies(){
-        return $this->belongsToMany(Technology::class)->withTimestamps();
+    public function languages(){
+        return $this->belongsToMany(Language::class)->withTimestamps();
     }
 }

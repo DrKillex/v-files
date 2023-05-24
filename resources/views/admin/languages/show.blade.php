@@ -9,11 +9,11 @@
 
         <ul>
         @foreach ($language->games as $game)
-            <li><a href="{{ route('admin.games.edit', $game) }}">{{ $game->title }}</a></li>
+            <li><a href="{{ route('admin.games.show', $game) }}">{{ $game->title }}</a></li>
         @endforeach
         </ul>
-        <hr>
-        <a href="{{ route('admin.languages.edit', $language) }}" class="btn btn-sm btn-warning">Edit</a>
+        {{-- <hr>
+        <a href="{{ route('admin.languages.edit', $language) }}" class="btn btn-sm btn-warning">Edit</a> --}}
 
     </div>
 @endsection
