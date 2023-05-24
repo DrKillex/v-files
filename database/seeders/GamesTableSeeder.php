@@ -6,6 +6,7 @@ use App\Models\Game;
 use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 
 class GamesTableSeeder extends Seeder
@@ -17,7 +18,9 @@ class GamesTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
+        Schema::disableForeignKeyConstraints();
         Game::truncate();
+        Schema::enableForeignKeyConstraints();
         for ($i=0;$i<10;$i++){
             $newGame= new Game();
             $newGame->original_title= $faker->sentence(3);
