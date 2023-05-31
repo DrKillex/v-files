@@ -10,7 +10,7 @@ class Game extends Model
     use HasFactory;
 
 
-    protected $guarded = ['thumb'];
+    protected $guarded = ['thumb','image'];
 
 
 

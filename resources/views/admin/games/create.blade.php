@@ -145,7 +145,7 @@
                     <input type="text" class="form-control" id="realese_version" name="realese_version"
                         value="{{ old('realese_version') }}">
                 </div>
-                
+
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" role="switch" id="set_thumb" name="set_thumb" @if ($game->thumb) checked @endif value="1">
                     <label class="form-check-label" for="set_thumb">image set/unset</label>
@@ -157,8 +157,53 @@
                     <label for="thumb" class="form-label">Image</label>
                     <input class="form-control" type="file" id="thumb" name="thumb">
                 </div>
-                
-                        
+
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="set_image" name="set_image" @if ($game->image) checked @endif value="1">
+                    <label class="form-check-label" for="set_image">image set/unset</label>
+                </div>
+                <div class="mb-3" id="image2-input-container">
+                    <div class="preview">
+                        <img id="file-image2-preview" class="img-fluid">
+                    </div>
+                    <label for="image" class="form-label">Image</label>
+                    <input class="form-control" type="file" id="image" name="image">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-check-label" for="windows">
+                        Windows OS
+                    </label>
+                    <select name="windows" id="windows">
+                        <option value="" {{ old('windows') == null ? 'selected' : ''}}>Schegli un opzione</option>
+                        <option value="1" {{ old('windows') == '1' ? 'selected' : ''}}>Si</option>
+                        <option value="0" {{ old('windows') == '0' ? 'selected' : ''}}>No</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-check-label" for="mac">
+                        Mac OS
+                    </label>
+                    <select name="mac" id="mac">
+                        <option value="" {{ old('mac') == null ? 'selected' : ''}}>Schegli un opzione</option>
+                        <option value="1" {{ old('mac') == '1' ? 'selected' : ''}}>Si</option>
+                        <option value="0" {{ old('mac') == '0' ? 'selected' : ''}}>No</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-check-label" for="linux">
+                        Linux OS
+                    </label>
+                    <select name="linux" id="linux">
+                        <option value="" {{ old('linux') == null ? 'selected' : ''}}>Schegli un opzione</option>
+                        <option value="1" {{ old('linux') == '1' ? 'selected' : ''}}>Si</option>
+                        <option value="0" {{ old('mac') == '0' ? 'selected' : ''}}>No</option>
+                    </select>
+                </div>
+
+
 
                 <button type="submit" class="btn btn-primary">Aggiungi</button>
             </form>

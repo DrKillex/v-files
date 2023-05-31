@@ -30,10 +30,17 @@
                             <div>ram: {{$game->ram}}</div>
                             <div>discount value: {{$game->discount_value}}</div>
                             <div>realese version: {{$game->realese_version}}</div>
+                            <div>windows: {{$game->windows == 0 ? '❌' : '✔'}}</div>
+                            <div>mac: {{$game->mac == 0 ? '❌' : '✔'}}</div>
+                            <div>linux: {{$game->linux == 0 ? '❌' : '✔'}}</div>
                             <div>
                                 <img src="{{asset('storage/' . $game->thumb)}}" alt="" class="img-fluid img-thumbnail">
                             </div>
-                        </div>                     
+                            <div>
+                                <img src="{{asset('storage/' . $game->image)}}" alt="" class="img-fluid img-thumbnail">
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>

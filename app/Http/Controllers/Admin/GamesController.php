@@ -61,6 +61,9 @@ class GamesController extends Controller
         if (isset($data['thumb'])) {
             $game->thumb = Storage::put('uploads', $data['thumb']);
         }
+        if (isset($data['image'])) {
+            $game->image = Storage::put('uploads', $data['image']);
+        }
 
         $game->slug =  Str::slug($data['original_title']);
         $game->fill($data);
@@ -113,6 +116,15 @@ class GamesController extends Controller
             $game->thumb = Storage::put('uploads', $data['thumb']);
         }
 
+        if (isset($data['image'])) {
+
+            if ($game->image) {
+                Storage::delete($game->image);
+            }
+
+            $game->image = Storage::put('uploads', $data['image']);
+        }
+
 
         $game->update($data);
         return redirect()->route('admin.games.show', $game);
@@ -134,6 +146,9 @@ class GamesController extends Controller
 
         if ($game->thumb) {
             Storage::delete($game->thumb);
+        }
+        if ($game->image) {
+            Storage::delete($game->image);
         }
 
         $game->delete();
