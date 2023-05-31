@@ -8,9 +8,9 @@
                 <thead>
                     <tr>
                         <th scope="col">original title</th>
-                        <th scope="col">publisher</th>
+                        <th scope="col">price</th>
                         <th scope="col">release</th>
-                        <th scope="col">released</th>
+                        <th scope="col">discount</th>
                         <th scope="col">pegi</th>
                         <th scope="col">actions</th>
                     </tr>
@@ -19,9 +19,9 @@
                     @foreach ($games as $game)
                         <tr>
                             <th>{{ $game->original_title }}</th>
-                            <td>{{ $game->publisher }}</td>
+                            <td>{{ $game->price }}</td>
                             <td>{{ $game->release }}</td>
-                            <td>{{ $game->released }}</td>
+                            <td>{{ $game->discount_value }}</td>
                             <td>{{ $game->pegi }}</td>
                             <td>
                                 <ul class="d-flex list-unstyled gap-2">

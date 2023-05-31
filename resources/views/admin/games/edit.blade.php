@@ -31,7 +31,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="price" class="form-label">Price</label>
-                    <input type="number" class="form-control" id="price" name="price" step="0.01" min="0.01"
+                    <input type="number" class="form-control" id="price" name="price" step="0.01" min="0.00"
                         value="{{ old('price', $game->price) }}">
                 </div>
                 <div class="mb-3">
