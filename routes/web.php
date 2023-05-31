@@ -3,7 +3,7 @@
 use App\Http\Controllers\Admin\GamesController;
 
 use App\Http\Controllers\Admin\DeveloperController;
-
+use App\Http\Controllers\Admin\FlagController;
 use App\Http\Controllers\Admin\GenreController;
 
 use App\Http\Controllers\ProfileController;
@@ -39,6 +39,10 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('developers', DeveloperController::class);
 
     Route::resource('games', GamesController::class)->parameters(['games'=>'game:slug']);
+
+    Route::get('flags', [FlagController::class, 'index'])->name('flags.index');
+    Route::patch('flags/{id}', [FlagController::class, 'update'])->name('flags.update');
+
     Route::resource('genres', GenreController::class)->parameters(['genres'=>'genre:slug']);
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
