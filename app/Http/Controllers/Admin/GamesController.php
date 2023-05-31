@@ -108,21 +108,8 @@ class GamesController extends Controller
      */
     public function destroy(Game $game)
     {
+        Storage::delete($game->thumb);
         $game->delete();
         return to_route('admin.games.index');
     }
 }
-
-// if (isset($data['delete_image'])) {
-//     if ($record->image) {
-//         Storage::delete($record->image);
-//         $record->image = null;
-//     }
-// } else {
-//     if (isset($data['image'])) {
-//         if ($record->image) {
-//             Storage::delete($record->image);
-//         }
-//         $record->image = Storage::put('uploads', $data['image']);
-//     }
-// }
