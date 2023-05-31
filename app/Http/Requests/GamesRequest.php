@@ -42,8 +42,12 @@ class GamesRequest extends FormRequest
             'ram'=>'required|numeric',
             'discount_value'=>'required|numeric|min_digits:1|max_digits:99',
             'realese_version'=>'required|max:100',
-            'thumb'=>'required',
-          
+            'thumb'=>'image',
+            'image'=>'image',
+            'windows'=>'required|boolean',
+            'mac'=>'required|boolean',
+            'linux'=>'required|boolean'
+
           /*'thumb' => 'image|max:2048',*/
 
         ];
