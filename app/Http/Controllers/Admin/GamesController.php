@@ -40,16 +40,34 @@ class GamesController extends Controller
      */
     public function store(GamesRequest $request)
     {
+        // $data = $request->validated();
+        // $newRecord = new Game();
+
+        // if (isset($data['thumb'])) {
+        //     $data['thumb'] = Storage::put('uploads', $data['thumb']);
+        // }
+        // $newRecord->fill($data);
+        // $newRecord->save();
+
+        // return redirect()->route('admin.games.show', $newRecord);
+
+
         $data = $request->validated();
-        $newRecord = new Game();
 
+        $game = new Game();
+
+
+        $game->slug = Str::slug($data['title'], '-');
         if (isset($data['thumb'])) {
-            $data['thumb'] = Storage::put('uploads', $data['thumb']);
+            $game->thumb = Storage::put('uploads', $data['thumb']);
         }
-        $newRecord->fill($data);
-        $newRecord->save();
 
-        return redirect()->route('admin.games.show', $newRecord);
+        $game->slug =  Str::slug($data['original_title']);
+        $game->fill($data);
+        $game->save();
+
+
+        return redirect()->route('admin.games.index')->with('message', 'Post creato con successo');
     }
 
     /**
@@ -108,8 +126,18 @@ class GamesController extends Controller
      */
     public function destroy(Game $game)
     {
-        Storage::delete($game->thumb);
+        // Storage::delete($game->thumb);
+        // $game->delete();
+        // return to_route('admin.games.index');
+
+        $old_id = $game->id;
+
+        if ($game->thumb) {
+            Storage::delete($game->thumb);
+        }
+
         $game->delete();
-        return to_route('admin.games.index');
+
+        return redirect()->route('admin.games.index')->with('message', "Post $old_id eliminato con successo");
     }
 }
