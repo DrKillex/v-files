@@ -6,6 +6,7 @@
             <li><a href="{{ route('admin.games.create') }}">create</a></li>
             <li><a href="{{ route('admin.developers.index') }}">Developers</a></li>
             <li><a href="{{ route('admin.genres.index') }}">genres</a></li> 
+            <li><a href="{{ route('admin.flags.index') }}">flag</a></li>
         </ul>
     </div>
 </header>
