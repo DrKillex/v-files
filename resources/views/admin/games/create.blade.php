@@ -12,7 +12,7 @@
                     </ul>
                 </div>
             @endif
-            <form action="{{ route('admin.games.store', $game) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.games.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label for="original_title" class="form-label">Original Title</label>
@@ -62,8 +62,13 @@
                         value="{{ old('required_space') }}">
                 </div>
                 <div class="mb-3">
-                    <label for="genres" class="form-label">genres</label>
-                    <input type="text" class="form-control" id="genres" name="genres" value="{{ old('genres') }}">
+                    <div class="mb-3">genres</div>
+                    @foreach ($genres as $genre)
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="genre" value="{{ $genre->id }}" name="genres[]" {{ in_array($genre->id, old('genres', [])) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="genre">{{ $genre->name }}</label>
+                        </div>
+                    @endforeach   
                 </div>
                 <div class="mb-3">
                     <label class="form-check-label" for="singleplayer">

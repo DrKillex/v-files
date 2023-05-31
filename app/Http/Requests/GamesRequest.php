@@ -40,6 +40,7 @@ class GamesRequest extends FormRequest
             'vote'=>'required|numeric',
             'pegi'=>'required|numeric',
             'ram'=>'required|numeric',
+            'genres'=>'exists:genres,id',
             'discount_value'=>'required|numeric|min_digits:1|max_digits:99',
             'realese_version'=>'required|max:100',
             'thumb'=>'image',

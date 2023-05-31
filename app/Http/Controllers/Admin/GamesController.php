@@ -6,6 +6,7 @@ use App\Models\Game;
 use Illuminate\Http\Request;
 use App\Http\Requests\GamesRequest;
 use App\Http\Controllers\Controller;
+use App\Models\Genre;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -29,7 +30,8 @@ class GamesController extends Controller
      */
     public function create(Game $game)
     {
-        return view('admin.games.create', compact('game'));
+        $genres = Genre::all();
+        return view('admin.games.create', compact('game','genres'));
     }
 
     /**
@@ -68,7 +70,9 @@ class GamesController extends Controller
         $game->slug =  Str::slug($data['original_title']);
         $game->fill($data);
         $game->save();
-
+        if(isset($data['genres'])){
+            $game->genres()->sync($data['genres']);
+        }
 
         return redirect()->route('admin.games.index')->with('message', 'Post creato con successo');
     }
@@ -92,7 +96,8 @@ class GamesController extends Controller
      */
     public function edit(Game $game)
     {
-        return view('admin.games.edit', compact('game'));
+        $genres = Genre::all();
+        return view('admin.games.edit', compact('game','genres'));
     }
 
     /**
@@ -125,7 +130,8 @@ class GamesController extends Controller
             $game->image = Storage::put('uploads', $data['image']);
         }
 
-
+        $genres = isset($data['genres']) ? $data['genres'] : [];
+        $game->genres()->sync($genres);
         $game->update($data);
         return redirect()->route('admin.games.show', $game);
     }
